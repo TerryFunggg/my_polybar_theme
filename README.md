@@ -6,8 +6,18 @@
 - Fontawesome
 
 #### Modules:
-- bspwm
-- battery
-- pulseaudio
-- date
+- Left
+ - username
+ - kernel version
+ - bspwm
+
+- Center
+ - load average
+ - memory
+ - drive space
+
+- Right
+ - pulseaudio
+ - date time
+ - battery
 
