@@ -58,9 +58,6 @@ line-size = 2
 font-0=System San Francisco Display Regular:size=10;4
 font-1=System San Francisco Display Regular:size=10;4
 font-2=Material Icons:size=13;7
-font-3=font\-logos:size=10;4
-font-4=FontAwesome5Brands:size=11;2
-font-5=IPAGothic:size=11;2
 
 #modules-right = playerctl pulseaudio time powermenu
 modules-right =battery pulseaudio time
