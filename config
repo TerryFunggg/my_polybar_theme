@@ -104,7 +104,7 @@ date = "%d %b"
 
 label = %time% | %date%
 label-background = ${colors.background}
-label-padding = 2
+label-padding = 1
 
 
 [module/pulseaudio]
@@ -148,6 +148,7 @@ label-font = 1
 type = custom/script
 exec = ~/.config/polybar/polybar-script/battery-combined-shell.sh
 interval = 10
+format-margin=2
 
 [module/system-cpu-loadavg]
 type = custom/script
@@ -159,7 +160,7 @@ interval = 5
 type = internal/memory
 interval = 5
 label= %percentage_used%%
-format-margin=2
+label-margin=15
 
 [module/filesystem]
 type = internal/fs
@@ -170,7 +171,7 @@ interval = 30
 ; Default: false
 fixed-values = true
 label-mounted =  %percentage_free%%
-format-margin=2
+
 
 [settings]
 screenchange-reload = true
