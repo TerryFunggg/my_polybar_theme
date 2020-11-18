@@ -21,22 +21,6 @@
 foreground = ${xrdb:foreground:#ffff}
 ;foreground = ${xrdb:background:#000}
 background = #0000
-color0 = ${xrdb:color0}
-color1 = ${xrdb:color1}
-color2 = ${xrdb:color2}
-color3 = ${xrdb:color3}
-color4 = ${xrdb:color4}
-color5 = ${xrdb:color5}
-color6 = ${xrdb:color6}
-color7 = ${xrdb:color7}
-color8 = ${xrdb:color8}
-color9 = ${xrdb:color9}
-color10 = ${xrdb:color10}
-color11 = ${xrdb:color11}
-color12 = ${xrdb:color12}
-color13 = ${xrdb:color13}
-color14 = ${xrdb:color14}
-color15 = ${xrdb:color15}
 
 ;  _                    
 ; | |__   __ _ _ __ ___ 
@@ -58,12 +42,15 @@ line-size = 2
 font-0=System San Francisco Display Regular:size=10;4
 font-1=System San Francisco Display Regular:size=10;4
 font-2=Material Icons:size=13;7
+font-3 = FontAwesome5Free:style=Solid:size=12;5
+
 
 #modules-right = playerctl pulseaudio time powermenu
-modules-right =battery pulseaudio time
+modules-right =battery pulseaudio time battery-combined-shell
 
 ; bspwm
-modules-left = uname-label bspwm
+modules-left = uname-label info-kernel bspwm
+modules-center = system-cpu-loadavg memory filesystem
 scroll-up = bspwm-wsnext
 scroll-down = bspwm-wsprev
 wm-restack = bspwm
@@ -81,7 +68,14 @@ override-redirect = false
 type = custom/script
 exec="echo $USER"
 content-margin = 2
+format-margin = 2
 #click-left=launcher
+
+[module/info-kernel]
+type = custom/script
+exec = uname -r
+interval = 1024
+format-margin=2
 
 [module/bspwm]
 type = internal/bspwm
@@ -133,123 +127,50 @@ label-muted-padding = 2
 [module/battery]
 type = internal/battery
 format-charging-margin = 2
-format-charging-foreground = ${colors.color2}
 format-discharging-margin = 2
-format-discharging-foreground = ${colors.color1}
 format-full-margin = 2
-format-full-foreground = ${colors.color3}
 full-at = 100
 time-format = %H:%M
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
 battery = BAT0
-adapter = ADP0
-format-charging = <animation-charging> <label-charging>
-;label-charging = %percentage%% (%time%)
-label-charging = %percentage%%
-format-discharging = <ramp-capacity> <label-discharging>
-;label-discharging = %percentage%% (%time%)
+adapter = AC
+format-charging = <label-charging>
+label-charging = %percentage%% (%time%)
+format-discharging = <label-discharging>
 label-discharging = %percentage%%
-format-full = <label-full>
-;label-charging-underline = ${colors.tertiary}
-;label-discharging-underline = ${colors.tertiary}
-
-
-format-charging-underline = $fff
-format-full-prefix = " "
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-
-ramp-capacity-0-foreground = ${colors.foreground}
-ramp-capacity-foreground   = ${colors.foreground}
-bar-capacity-width = 10
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-
-animation-charging-framerate = 750
-
+format-full = 
+format-charging-underline = #fff
+format-discharging-underline = #fff
 label-font = 1
 
-; ramp-capacity-0-underline = ${colors.tertiary}
-; ramp-capacity-1-underline = ${colors.tertiary}
-; ramp-capacity-2-underline = ${colors.tertiary}
-; ramp-capacity-3-underline = ${colors.tertiary}
-; ramp-capacity-4-underline = ${colors.tertiary}
-;
-; animation-charging-0-underline = ${colors.tertiary}
-; animation-charging-1-underline = ${colors.tertiary}
-; animation-charging-2-underline = ${colors.tertiary}
-; animation-charging-3-underline = ${colors.tertiary}
-; animation-charging-4-underline = ${colors.tertiary}
-
-; Uncomment these for anmated discharging battery underline
-; ramp-capacity-0-underline = ${colors.primary}
-; ramp-capacity-1-underline = ${colors.primary}
-; ramp-capacity-2-underline = ${colors.tertiary}
-; ramp-capacity-3-underline = ${colors.tertiary}
-; ramp-capacity-4-underline = ${colors.tertiary}
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format =  <label>
-format-warn = <ramp> <label-warn>
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-color1 = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-
-[module/powermenu]
-type = custom/menu
-
-expand-right = false
-
-format-margin = 2
-format-spacing = 2
-
-label-open = 
-label-close = 
-label-separator = |
-
-; reboot
-menu-0-1 = 
-menu-0-1-exec = menu-open-2
-; poweroff
-menu-0-2 = 
-menu-0-2-exec = menu-open-3
-; logout
-menu-0-0 = 
-menu-0-0-exec = menu-open-1
-
-menu-2-0 = 
-menu-2-0-exec = reboot
-
-menu-3-0 = 
-menu-3-0-exec = poweroff
-
-menu-1-0 = 
-menu-1-0-exec = i3-msg exit || openbox --exit
-
-[module/playerctl]
+[module/battery-combined-shell]
 type = custom/script
-format-margin = 4
-format-prefix = " "
-#exec = playerctl_status
-exec = vis
-exec-if = [[ "$(playerctl -l)" != "No players found" ]] && echo "0"
-tail = true
-interval = 0
+exec = ~/.config/polybar/polybar-script/battery-combined-shell.sh
+interval = 10
+
+[module/system-cpu-loadavg]
+type = custom/script
+exec = ~/.config/polybar/polybar-script/system-cpu-loadavg.sh
+interval = 5
+
+
+[module/memory]
+type = internal/memory
+interval = 5
+label= %percentage_used%%
+format-margin=2
+
+[module/filesystem]
+type = internal/fs
+; Mountpoints to display
+mount-0 = /
+interval = 30
+; Display fixed precision values
+; Default: false
+fixed-values = true
+label-mounted =  %percentage_free%%
+format-margin=2
 
 [settings]
 screenchange-reload = true
