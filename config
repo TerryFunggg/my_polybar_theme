@@ -46,7 +46,7 @@ font-3 = FontAwesome5Free:style=Solid:size=12;5
 
 
 #modules-right = playerctl pulseaudio time powermenu
-modules-right =battery pulseaudio time battery-combined-shell
+modules-right =pulseaudio time battery-combined-shell
 
 ; bspwm
 modules-left = uname-label info-kernel bspwm
