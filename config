@@ -47,8 +47,6 @@ font-3 = FontAwesome5Free:style=Solid:size=12;5
 
 #modules-right = playerctl pulseaudio time powermenu
 modules-right =pulseaudio time battery-combined-shell
-
-; bspwm
 modules-left = uname-label info-kernel bspwm
 modules-center = system-cpu-loadavg memory filesystem
 scroll-up = bspwm-wsnext
@@ -56,7 +54,51 @@ scroll-down = bspwm-wsprev
 wm-restack = bspwm
 override-redirect = false
 
+[bar/top_external]
+enable-ipc=true
+height = 28
+width = 100%
+;bottom = true
+offset-y = 8
+padding = 8
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 2
 
+font-0=System San Francisco Display Regular:size=10;4
+font-1=System San Francisco Display Regular:size=10;4
+font-2=Material Icons:size=13;6
+font-3 = FontAwesome5Free:style=Solid:size=12;5
+
+bottom = false
+monitor = eDP1
+modules-left = bspwm
+
+[bar/top]
+enable-ipc=true
+height = 28
+width = 100%
+;bottom = true
+offset-y = 8
+padding = 8
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 2
+
+font-0=System San Francisco Display Regular:size=10;4
+font-1=System San Francisco Display Regular:size=10;4
+font-2=Material Icons:size=13;6
+font-3 = FontAwesome5Free:style=Solid:size=12;5
+
+bottom = false
+monitor = HDMI1
+modules-right =pulseaudio time battery-combined-shell
+modules-left = uname-label info-kernel bspwm
+modules-center = system-cpu-loadavg memory filesystem
+scroll-up = bspwm-wsnext
+scroll-down = bspwm-wsprev
+wm-restack = bspwm
+override-redirect = false
 
 ;                      _       _           
 ;  _ __ ___   ___   __| |_   _| | ___  ___ 
@@ -92,6 +134,7 @@ label-focused-font = 2
 label-empty =
 label-occupied = %index%
 label-occupied-padding = 4
+pin-workspaces = true
 
 
 [module/time]
