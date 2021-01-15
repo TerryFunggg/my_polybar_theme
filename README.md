@@ -1,4 +1,8 @@
+#### [bar/transparent]
 ![](./screen.png)
+
+#### [bar/bar]
+![](./screen2.png)
 
 #### Fonts used:
 - [Yosemite San Francisco Font](https://github.com/supermarin/YosemiteSanFranciscoFont)
@@ -12,7 +16,7 @@
 - load average
 - memory
 - drive space
+- spotify
 - pulseaudio
 - date time
 - battery
-
