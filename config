@@ -50,9 +50,7 @@ font-1=System San Francisco Display Regular:size=10;4
 font-2=Material Icons:size=13;6
 font-3 = FontAwesome5Free:style=Solid:size=12;5
 
-
-#modules-right = playerctl pulseaudio time powermenu
-modules-right =pulseaudio time battery-combined-shell
+modules-right = spotify pulseaudio time battery-combined-shell
 modules-left = uname-label info-kernel bspwm
 modules-center = system-cpu-loadavg memory filesystem
 scroll-up = bspwm-wsnext
@@ -78,9 +76,7 @@ font-1=System San Francisco Display Regular:size=10;4
 font-2=Material Icons:size=13;6
 font-3 = FontAwesome5Free:style=Solid:size=12;5
 
-
-#modules-right = playerctl pulseaudio time powermenu
-modules-right =pulseaudio time battery-combined-shell
+modules-right = spotify pulseaudio time battery-combined-shell
 modules-left = uname-label info-kernel bspwm
 modules-center = system-cpu-loadavg memory filesystem
 scroll-up = bspwm-wsnext
@@ -126,7 +122,7 @@ font-3 = FontAwesome5Free:style=Solid:size=12;5
 
 bottom = false
 monitor = HDMI1
-modules-right =pulseaudio time battery-combined-shell
+modules-right = spotify pulseaudio time battery-combined-shell
 modules-left = uname-label info-kernel bspwm
 modules-center = system-cpu-loadavg memory filesystem
 scroll-up = bspwm-wsnext
@@ -261,4 +257,11 @@ margin-bottom = 0
 
 ; vim:ft=dosini
                       
-
+[module/spotify]
+type = custom/script
+format-padding = 2
+format =  <label>
+exec = playerctl metadata --format '{{title}}-{{artist}}'
+tail = true
+interval = 1
+click-left = "playerctl play-pause"
