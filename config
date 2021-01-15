@@ -20,7 +20,7 @@
 
 foreground = ${xrdb:foreground:#ffff}
 ;foreground = ${xrdb:background:#000}
-background = #0000
+background = ${xrdb:background:#000}
 
 ;  _                    
 ; | |__   __ _ _ __ ___ 
@@ -29,14 +29,48 @@ background = #0000
 ; |_.__/ \__,_|_|  |___/
 
 [bar/bar]
+background = ${colors.background}
+foreground = ${colors.foreground}
 enable-ipc=true
-height = 28
+
+height = 35
+;;width = 100%
+width = 98%
+;bottom = true
+;;offset-y = 8
+offset-y = 0
+offset-x = 1%
+padding = 8
+radius-bottom = 15
+
+line-size = 2
+
+font-0=System San Francisco Display Regular:size=10;4
+font-1=System San Francisco Display Regular:size=10;4
+font-2=Material Icons:size=13;6
+font-3 = FontAwesome5Free:style=Solid:size=12;5
+
+
+#modules-right = playerctl pulseaudio time powermenu
+modules-right =pulseaudio time battery-combined-shell
+modules-left = uname-label info-kernel bspwm
+modules-center = system-cpu-loadavg memory filesystem
+scroll-up = bspwm-wsnext
+scroll-down = bspwm-wsprev
+wm-restack = bspwm
+override-redirect = false
+
+
+[bar/transparent]
+background = #0000
+foreground = ${colors.foreground}
+enable-ipc=true
+
+height = 30
 width = 100%
 ;bottom = true
 offset-y = 8
 padding = 8
-background = ${colors.background}
-foreground = ${colors.foreground}
 line-size = 2
 
 font-0=System San Francisco Display Regular:size=10;4
@@ -146,7 +180,6 @@ time = "%H:%M"
 date = "%d %b"
 
 label = %time% | %date%
-label-background = ${colors.background}
 label-padding = 1
 
 
@@ -156,7 +189,6 @@ type = internal/pulseaudio
 format-volume-margin = 1
 format-volume = <ramp-volume><label-volume>
 label-volume = %percentage:4:4%%
-format-volume-background = ${colors.background}
 format-volume-padding = 1
 use-ui-max = false
 interval = 5
@@ -164,7 +196,6 @@ ramp-volume-0 = ""
 ramp-volume-1 = ""
 ramp-volume-2 = ""
 label-muted = " muted"
-label-muted-background = ${colors.background}
 label-muted-padding = 2
 
 [module/battery]
@@ -230,3 +261,4 @@ margin-bottom = 0
 
 ; vim:ft=dosini
                       
+
