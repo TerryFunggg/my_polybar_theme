@@ -50,7 +50,7 @@ font-1=System San Francisco Display Regular:size=10;4
 font-2=Material Icons:size=13;6
 font-3 = FontAwesome5Free:style=Solid:size=12;5
 
-modules-right = spotify space spotify-prev spotify-play-pause spotify-next space space pulseaudio time battery-combined-shell
+modules-right = pulseaudio time battery-combined-shell
 modules-left = uname-label info-kernel bspwm
 modules-center = system-cpu-loadavg memory filesystem
 scroll-up = bspwm-wsnext
@@ -76,7 +76,7 @@ font-1=System San Francisco Display Regular:size=10;4
 font-2=Material Icons:size=13;6
 font-3 = FontAwesome5Free:style=Solid:size=12;5
 
-modules-right = spotify space spotify-prev spotify-play-pause spotify-next space space pulseaudio time battery-combined-shell
+modules-right = pulseaudio time battery-combined-shell
 modules-left = uname-label info-kernel bspwm
 modules-center = system-cpu-loadavg memory filesystem
 scroll-up = bspwm-wsnext

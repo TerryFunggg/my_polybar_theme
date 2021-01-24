@@ -1,6 +1,8 @@
 #### [bar/transparent]
 ![](./screen.png)
 
+![](./screen3.png)
+
 #### [bar/bar]
 ![](./screen2.png)
 
@@ -16,7 +18,6 @@
 - load average
 - memory
 - drive space
-- spotify
 - pulseaudio
 - date time
 - battery
