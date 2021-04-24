@@ -51,7 +51,7 @@ font-2=Material Icons:size=13;6
 font-3 = FontAwesome5Free:style=Solid:size=12;5
 
 modules-right = pulseaudio time battery-combined-shell
-modules-left = uname-label info-kernel bspwm
+modules-left = uname-label info-kernel bspwm bsp-layout-status
 modules-center = system-cpu-loadavg memory filesystem
 scroll-up = bspwm-wsnext
 scroll-down = bspwm-wsprev
@@ -77,7 +77,7 @@ font-2=Material Icons:size=13;6
 font-3 = FontAwesome5Free:style=Solid:size=12;5
 
 modules-right = pulseaudio time battery-combined-shell
-modules-left = uname-label info-kernel bspwm
+modules-left = uname-label info-kernel bspwm bsp-layout-status
 modules-center = system-cpu-loadavg memory filesystem
 scroll-up = bspwm-wsnext
 scroll-down = bspwm-wsprev
@@ -152,7 +152,7 @@ format-margin=2
 [module/bspwm]
 type = internal/bspwm
 format = <label-state>
-format-margin = 4
+format-margin = 2
 index-sort = true
 enable-click = true
 reverse-scroll = false
@@ -291,6 +291,14 @@ type = custom/script
 exec = echo ""
 format = <label>
 click-left = playerctl next spotify
+
+[module/bsp-layout-status]
+type = custom/script
+exec = ~/.config/polybar/polybar-script/bsp-layout-status.sh
+format = <label>
+tail= true
+interval = 1
+format-margin=2
 
 [module/space]
 type = custom/text
