@@ -64,10 +64,10 @@ background = #0000
 foreground = ${colors.foreground}
 enable-ipc=true
 
-height = 30
+height = 35
 width = 100%
 ;bottom = true
-offset-y = 8
+offset-y = 0
 padding = 8
 line-size = 2
 
